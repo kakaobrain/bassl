@@ -1,0 +1,132 @@
+# @package _global_
+config:
+  DRY_RUN: False
+  EXPR_NAME: devel
+  NOTE: ""
+  LOGGING:
+    LOG_FREQ: 100
+    CKPT_FREQ: -1  # -1: save last epoch model only.
+  TRAINER:
+    accelerator: ddp
+    precision: 16
+    max_epochs: 10
+    terminate_on_nan: True
+    flush_logs_every_n_steps: 100
+    num_sanity_val_steps: 0
+  DATASET: movienet
+  TEST:
+    KNN_VALIDATION: True
+    VAL_FREQ: 1
+    TRANSFORM:
+      - name: VideoResizedCenterCrop
+        image_size: 256
+        crop_size: 224
+      - name: VideoToTensor
+        mean: [0.485, 0.456, 0.406]
+        std: [0.229, 0.224, 0.225]
+  TRAIN:
+    USE_SINGLE_KEYFRAME: True  # only for train_mode
+    NUM_KEYFRAME: 3
+    TRANSFORM:
+      - name: VideoRandomResizedCrop
+        size: 224
+        bottom_area: 0.14
+      - name: VideoRandomHFlip
+      - name: VideoRandomColorJitter
+        brightness: 0.2
+        contrast: 0.2
+        saturation: 0.2
+        hue: 0.05
+        p: 0.8
+        consistent: False
+      - name: VideoRandomGaussianBlur
+        radius_min: 0.1
+        radius_max: 2.0
+        p: 0.5
+      - name: VideoToTensor
+        mean: [0.485, 0.456, 0.406]
+        std: [0.229, 0.224, 0.225]
+    BATCH_SIZE:
+      effective_batch_size: 256
+    COLLATE_FN: default_collator
+    NUM_WORKERS: 8
+    PIN_MEMORY: False
+    OPTIMIZER:
+      name: lars
+      weight_decay: 0.000001
+      momentum: 0.9
+      betas: [.9, .999]  # for Adam/AdamW
+      nesterov: False
+      regularize_bn: False
+      regularize_bias: False
+      lr:
+        base_lr: 0.3
+        base_lr_batch_size: 256
+        auto_scale: True
+      scheduler:
+        name: cosine_with_linear_warmup
+        warmup: 0.1  # use X-% of steps for warmup.
+  MODEL:
+    use_sync_bn: True  # for sync_batchnorm in PYL
+    shot_encoder:
+      name: resnet
+      resnet:
+        input_shape: [3, 224, 224]
+        depth: 50
+        use_imagenet_pretrained: False  # use 3-channel 2D ResNet pretrained on ImageNet.
+        params:
+          zero_init_residual: True
+          in_channel_dim: 3
+    contextual_relation_network:  # CRN
+      enabled: True
+      name: trn
+      params:
+        trn:
+          input_dim: 2048
+          is_decoder: False
+          add_cross_attention: False
+          chunk_size_feed_forward: 0
+          attention_probs_dropout_prob: 0.1
+          hidden_act: gelu
+          hidden_dropout_prob: 0.1
+          hidden_size: 768
+          intermediate_size: 3072
+          layer_norm_eps: 1e-12
+          num_attention_heads: 8
+          num_hidden_layers: 2
+          pooling_method: center
+  LOSS:
+    shot_scene_matching:
+      enabled: True
+      name: simclr_loss
+      params:
+        simclr_loss:
+          temperature: 0.1
+          head:  # for NCE contrastive loss
+            input_dim: 2048
+            hidden_dim: 2048
+            output_dim: 128
+    contextual_group_matching:
+      enabled: True
+    pseudo_boundary_prediction:
+      enabled: True
+      num_neg_sample: 1
+    masked_shot_modeling:
+      enabled: True
+    sampling_method:
+      name: bassl
+      params:
+        temporal:
+          neighbor_size: 8
+        shotcol:
+          neighbor_size: 8
+          neighbor_interval: 1
+        bassl:
+          neighbor_size: 8
+          neighbor_interval: 1
+        bassl+shotcol:
+          neighbor_size: 8
+          neighbor_interval: 1
+  DISTRIBUTED:
+    NUM_NODES: 1
+    NUM_PROC_PER_NODE: 8

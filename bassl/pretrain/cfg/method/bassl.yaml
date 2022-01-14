@@ -1,0 +1,26 @@
+# @package _global_
+config:
+  LOSS:
+    shot_scene_matching:
+      enabled: True
+      name: simclr_loss
+      params:
+        simclr_loss:
+          temperature: 0.1
+          head:  # for NCE contrastive loss
+            input_dim: 2048
+            hidden_dim: 2048
+            output_dim: 128
+    contextual_group_matching:
+      enabled: True
+    pseudo_boundary_prediction:
+      enabled: True
+      num_neg_sample: 1
+    masked_shot_modeling:
+      enabled: True
+    sampling_method:
+      name: bassl
+      params:
+        bassl:
+          neighbor_size: 8
+          neighbor_interval: 1

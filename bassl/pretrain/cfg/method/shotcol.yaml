@@ -1,0 +1,26 @@
+# @package _global_
+config:
+  MODEL:
+    contextual_relation_network:  # CRN
+      enabled: False
+  LOSS:
+    simclr:
+      temperature: 0.1
+      head:  # for NCE contrastive loss
+        input_dim: 2048
+        hidden_dim: 2048
+        output_dim: 128
+    shot_scene_matching:
+      enabled: False
+    contextual_group_matching:
+      enabled: False
+    pseudo_boundary_prediction:
+      enabled: False
+    masked_shot_modeling:
+      enabled: False
+    sampling_method:
+      name: shotcol
+      params:
+        shotcol:
+          neighbor_size: 8
+          neighbor_interval: 1
