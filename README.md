@@ -4,10 +4,10 @@
 
 
 # BaSSL
-This is an official PyTorch Implementation of **Boundary-aware Self-supervised Learning for Video Scene Segmentation (BaSSL)**
+This is an official PyTorch Implementation of **Boundary-aware Self-supervised Learning for Video Scene Segmentation (BaSSL)** [[arxiv]](https://arxiv.org/abs/2201.0527)
   - The method is a self-supervised learning algorithm that learns a model to capture contextual transition across boundaries during the pre-training stage. To be specific, the method leverages pseudo-boundaries and proposes three novel boundary-aware pretext tasks effective in maximizing intra-scene similarity and minimizing inter-scene similarity, thus leading to higher performance in video scene segmentation task.
 
-<img src="https://raw.github.kakaocorp.com/kakaobrain/boundary_detection/release/release/imgs/banner.jpg?token=AAABZLBUJ2UIOHVF33YNAVDBZF2LS">
+<p align="center"><img width="100%" src="./imgs/bassl_pipeline.jpg"></p>
 
 
 ## 1. Environmental Setup
@@ -189,12 +189,13 @@ After fine-tuning with the checkpoints, the models will give scroes that are alm
 
 ## 5. Citation
 If you find this code helpful for your research, please cite our paper.
-```bash
-@article{mun2021boundary,
+```
+@article{mun2022boundary,
   title={Boundary-aware Self-supervised Learning for Video Scene Segmentation},
-  author={Mun, Jonghwan and Shin, Minchul and Hann, Gunsu and Lee, Sangho and Ha, Sungsu and Lee, Joonseok and Kim, Eun-sol},
-  journal={arXiv preprint arXiv:},
-  year={2021}
+  author={Mun, Jonghwan and Shin, Minchul and Han, Gunsu and
+          Lee, Sangho and Ha, Sungsu and Lee, Joonseok and Kim, Eun-sol},
+  journal={arXiv preprint arXiv:2201.05277},
+  year={2022}
 }
 ```
 
