@@ -178,12 +178,11 @@ class MovieNetMetric(torchmetrics.Metric):
 
         self.vid2idx = json.load(
             open(
-                "/data/project/rw/workspace_jason/boundary_detection/data/movienet_data/anno/vid2idx.json",
-                "r",
+                "bassl/data/movienet/anno/vid2idx.json", "r",
             )
         )
         self.idx2vid = {idx: vid for vid, idx in self.vid2idx.items()}
-        self.shot_path = "/data/project/rw/MovieNet/anno_scene318/shot_movie318"
+        self.shot_path = "bassl/data/movienet/scene318/shot_movie318"
 
     def update(self, vid, sid, pred, gt):
         # assert isinstance(vid, torch.Tensor)

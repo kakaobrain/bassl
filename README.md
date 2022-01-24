@@ -31,6 +31,7 @@ FYI, our script will automatically download and decompress data---1) key-frames 
 $ cd <path-to-root>
 $ bash script/download_movienet_data.sh
 ```
+In addition, download annotation files from [MovieNet-SSeg google drive](https://drive.google.com/drive/folders/1F-uqCKnhtSdQKcDUiL3dRcLOrAxHargz) and put the folder `scene318` into `<path-to-root>/bassl/data/movienet`. Then, the data folder structure will be as follows:
 
 ```bash
 # <path-to-root>/bassl/data
@@ -57,6 +58,10 @@ movienet
      │─ anno.val.ndjson
      │─ anno.test.ndjson
      │─ vid2idx.json
+│─scene318
+     │─ label318
+     │─ meta
+     │─ shot_movie318
 ```
 
 ## 3. Train (Pre-training and Fine-tuning)
