@@ -2,7 +2,6 @@
 [![pytorch](https://img.shields.io/badge/pytorch-1.7.1-%2523ee4c2c.svg)](https://pytorch.org/)
 [![pytorch-lightning](https://img.shields.io/badge/lightning-1.3.8-brightgreen)](https://www.pytorchlightning.ai/)
 
-aaa
 
 # BaSSL
 This is an official PyTorch Implementation of **Boundary-aware Self-supervised Learning for Video Scene Segmentation (BaSSL)** [[arxiv]](https://arxiv.org/abs/2201.05277)
@@ -192,8 +191,10 @@ After fine-tuning with the checkpoints, the models will give scroes that are alm
 | BaSSL (10 epoch)   | 56.26  | [download](https://arena.kakaocdn.net/brainrepo/bassl/checkpoints/bassl.tar.gz)             |
 | BaSSL (40 epoch)   | 57.40  | [download](https://arena.kakaocdn.net/brainrepo/bassl/checkpoints/bassl_40epoch.tar.gz)     |
 
+## 5. Non-official 3rd party apps
+- [ModelScope](https://modelscope.cn/models/damo/cv_resnet50-bert_video-scene-segmentation_movienet/summary) = the largest Model Community in Chinese by  [@pida0](https://github.com/pida0).
 
-## 5. Citation
+## 6. Citation
 If you find this code helpful for your research, please cite our paper.
 ```
 @article{mun2022boundary,
@@ -206,11 +207,11 @@ If you find this code helpful for your research, please cite our paper.
 ```
 
 
-## 6. Contact for Issues
+## 7. Contact for Issues
 Jonghwan Mun, [jason.mun@kakaobrain.com](jason.mun@kakaobrain.com)  
 Minchul Shin, [craig.starr@kakaobrain.com](craig.starr@kakaobrain.com)  
 
 
-## 7. License
+## 8. License
 This project is licensed under the terms of the [Apache License 2.0](./LICENSE).
 Copyright 2021 [Kakao Brain Corp](https://www.kakaobrain.com). All Rights Reserved.
