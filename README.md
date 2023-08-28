@@ -4,7 +4,7 @@
 
 
 # BaSSL
-This is an official PyTorch Implementation of **Boundary-aware Self-supervised Learning for Video Scene Segmentation (BaSSL)** [[arxiv]](https://arxiv.org/abs/2201.05277)
+This is an official PyTorch Implementation of **Boundary-aware Self-supervised Learning for Video Scene Segmentation (BaSSL)** [[arxiv]](https://arxiv.org/abs/2201.05277) [[demo in modelscope]](https://modelscope.cn/models/damo/cv_resnet50-bert_video-scene-segmentation_movienet/summary)
   - The method is a self-supervised learning algorithm that learns a model to capture contextual transition across boundaries during the pre-training stage. To be specific, the method leverages pseudo-boundaries and proposes three novel boundary-aware pretext tasks effective in maximizing intra-scene similarity and minimizing inter-scene similarity, thus leading to higher performance in video scene segmentation task.
 
 <p align="center"><img width="100%" src="./imgs/bassl_pipeline.jpg"></p>
