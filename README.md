@@ -185,11 +185,11 @@ After fine-tuning with the checkpoints, the models will give scroes that are alm
 
 | Method             |   AP   | Checkpoint (pre-trained) |
 |:-------------------|:------:|:------------------------:|
-| SimCLR (instance)  | 51.51  | [download](https://arena.kakaocdn.net/brainrepo/bassl/checkpoints/Simclr_instance.tar.gz)   |
-| SimCLR (temporal)  | 50.05  | [download](https://arena.kakaocdn.net/brainrepo/bassl/checkpoints/Simclr_temporal.tar.gz)   |
-| SimCLR (NN)        | 51.17  | [download](https://arena.kakaocdn.net/brainrepo/bassl/checkpoints/Simclr_NN.tar.gz)         |
-| BaSSL (10 epoch)   | 56.26  | [download](https://arena.kakaocdn.net/brainrepo/bassl/checkpoints/bassl.tar.gz)             |
-| BaSSL (40 epoch)   | 57.40  | [download](https://arena.kakaocdn.net/brainrepo/bassl/checkpoints/bassl_40epoch.tar.gz)     |
+| SimCLR (instance)  | 51.51  | [download](https://twg.kakaocdn.net/brainrepo/bassl/checkpoints/Simclr_instance.tar.gz)   |
+| SimCLR (temporal)  | 50.05  | [download](https://twg.kakaocdn.net/brainrepo/bassl/checkpoints/Simclr_temporal.tar.gz)   |
+| SimCLR (NN)        | 51.17  | [download](https://twg.kakaocdn.net/brainrepo/bassl/checkpoints/Simclr_NN.tar.gz)         |
+| BaSSL (10 epoch)   | 56.26  | [download](https://twg.kakaocdn.net/brainrepo/bassl/checkpoints/bassl.tar.gz)             |
+| BaSSL (40 epoch)   | 57.40  | [download](https://twg.kakaocdn.net/brainrepo/bassl/checkpoints/bassl_40epoch.tar.gz)     |
 
 
 ## 5. Citation
